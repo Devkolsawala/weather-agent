@@ -1,0 +1,4 @@
+{
+  "alert_triggers": ["storm", "heavy_rain", "high_temp", "high_humidity"],
+  "skip_normal": true
+}

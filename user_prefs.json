@@ -1,0 +1,10 @@
+{
+  "email_frequency": "alert_only",   
+  "notify_on": {
+    "rain": true,
+    "storm": true,
+    "high_temp": true,
+    "high_humidity": false
+  },
+  "preferred_time": "08:00"
+}
