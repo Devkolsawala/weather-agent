@@ -3,3 +3,13 @@ python-dotenv
 APScheduler
 twilio 
 ollama
+python-telegram-bot==20.7
+scikit-learn 
+pandas 
+joblib
+geocoder
+imapclient 
+pyzmail36
+beautifulsoup4
+opencv-python
+flask

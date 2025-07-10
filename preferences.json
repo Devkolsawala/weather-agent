@@ -1,4 +1,65 @@
 {
-  "alert_triggers": ["storm", "heavy_rain", "high_temp", "high_humidity"],
-  "skip_normal": true
+  "intents": [
+    {
+      "name": "High Humidity + High Temp",
+      "conditions": {
+        "humidity_gt": 80,
+        "temp_gt": 30
+      },
+      "type": "email"
+    },
+    {
+      "name": "Heavy Rain Alert",
+      "conditions": {
+        "description_contains": ["heavy rain", "storm"]
+      },
+      "type": "sms"
+    },
+    {
+      "name": "Very Hot Day",
+      "conditions": {
+        "temp_gt": 38
+      },
+      "type": "email"
+    },
+    {
+      "name": "Gloomy Mood (Clouds)",
+      "conditions": {
+        "description_contains": ["overcast", "broken clouds"]
+      },
+      "type": "email"
+    },
+    {
+      "name": "Umbrella Reminder",
+      "conditions": {
+        "description_contains": ["light rain", "showers"]
+      },
+      "type": "email"
+    },
+    {
+      "name": "Chilly Morning Alert",
+      "conditions": {
+        "temp_lt": 18,
+        "humidity_gt": 60
+      },
+      "type": "email"
+    },
+    {
+      "name": "Tropical Discomfort Alert",
+      "conditions": {
+        "humidity_gt": 85,
+        "temp_gt": 32
+      },
+      "type": "sms"
+    },
+    {
+      "name": "Perfect Outdoor Weather",
+      "conditions": {
+        "temp_lt": 30,
+        "humidity_lt": 60,
+        "description_contains": ["clear sky", "few clouds"]
+      },
+      "type": "email"
+    }
+  ]
 }

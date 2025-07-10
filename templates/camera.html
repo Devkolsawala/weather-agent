@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather Camera</title>
+</head>
+<body>
+    <h2>📸 Tap to Capture Weather Image</h2>
+    <video id="video" width="100%" autoplay></video><br>
+    <button onclick="capture()">📷 Capture</button>
+    <canvas id="canvas" style="display:none;"></canvas>
+
+    <script>
+        const video = document.getElementById('video');
+
+        // Ask for camera access
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(stream => {
+                video.srcObject = stream;
+            });
+
+        function capture() {
+            const canvas = document.getElementById('canvas');
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            const context = canvas.getContext('2d');
+            context.drawImage(video, 0, 0);
+
+            const data = canvas.toDataURL('image/jpeg');
+
+            fetch('/upload', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: 'image=' + encodeURIComponent(data)
+            }).then(res => alert("✅ Image uploaded successfully!"));
+        }
+    </script>
+</body>
+</html>
